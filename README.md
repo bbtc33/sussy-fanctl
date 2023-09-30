@@ -1,6 +1,6 @@
 # sussy-fanctl
 
-World's Jankiest Fan Control "Daemon" \
+World's Jankiest Fan Control "Daemon"
 
 Tested on my T420 \
 Move the sussy-fanctl to /bin or wherever you keep binaries \
