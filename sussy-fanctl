@@ -1,6 +1,8 @@
 #! /bin/bash
 
-temperature=$(sensors | awk '/Core 0/ {print $3}' | sed "s/+//g" | sed "s/°C//g" | sed "s/.0//g" )
+set_temp(){
+	temperature=$(sensors | awk '/Core 0/ {print $3}' | sed "s/+//g" | sed "s/°C//g" | sed "s/.0//g" )
+}
 
 get_fan_speed(){
 	if [[ $1 -lt 40 ]]
@@ -27,6 +29,7 @@ get_fan_speed(){
 }
 
 set_fan_speed() {
+	set_temp
 	get_fan_speed $temperature
 	echo level $fan_speed > /proc/acpi/ibm/fan
 }
